@@ -1,0 +1,15 @@
+{
+  "C_Cpp.errorSquiggles": "disabled",
+  "files.associations": {
+    "*.xs": "cpp"
+  },
+  "files.exclude": {
+    "*handicapped*": true,
+    "age3*.xs": true,
+    "Age316p2.xs": true,
+    "Age3AI.xs": true,
+    "aiLoaderInactive.xs": true,
+    "aiLoaderStandard.xs": true,
+    "homecitychatsets.xml": true
+  }
+}
