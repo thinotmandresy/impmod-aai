@@ -8,9 +8,6 @@ void ResearchEconomicTechs(void)
         return;
     last_call = xsGetTime();
 
-    if (kbBaseGetUnderAttack(cMyID, kbBaseGetMainID(cMyID)) == true)
-        return;
-    
     static int resource_units = -1;
     if (resource_units == -1)
     {
@@ -92,9 +89,6 @@ void ResearchUnitUpgrades(void)
         return;
     last_call = xsGetTime();
 
-    if (kbBaseGetUnderAttack(cMyID, kbBaseGetMainID(cMyID)) == true)
-        return;
-    
     int villager_upgrade = kbTechTreeGetCheapestUnitUpgrade(gUnitTypeVillager);
     if (kbGetAge() >= cAge2 && villager_upgrade >= 0 && 
         kbTechGetStatus(villager_upgrade) == cTechStatusObtainable && 
