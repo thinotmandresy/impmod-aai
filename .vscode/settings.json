@@ -1,8 +1,4 @@
 {
-  "C_Cpp.errorSquiggles": "disabled",
-  "files.associations": {
-    "*.xs": "cpp"
-  },
   "files.exclude": {
     "*handicapped*": true,
     "age3*.xs": true,
