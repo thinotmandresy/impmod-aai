@@ -68,24 +68,20 @@ runImmediately
 }
 
 
-void AgeUpgrade(void)
+rule AgeUpgrade
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static bool isActive = true;
-    if (isActive == false)
-        return;
-    
     if (kbGetAge() == cAge5)
     {
-        isActive = false;
+        xsDisableSelf();
         return;
     }
 
     if (kbGetAge() == cAge4 && aiGetGameMode() == cGameModeDeathmatch)
     {
-        isActive = false;
+        xsDisableSelf();
 
         int dm_imperial_ageup_plan = aiPlanCreate("AgeUpgrade (Deathmatch Imperial)", cPlanResearch);
         aiPlanSetDesiredPriority(dm_imperial_ageup_plan, 100);

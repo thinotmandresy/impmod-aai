@@ -99,5 +99,3 @@ extern int             gUnitTypeTowerBuilding = -1;
 extern int             gUnitTypeNavalBuilding = -1;
 mutable void           setCivUnitTypes(void) {}
 mutable void           sendInformationalNotes(void) {}
-
-mutable void           UpdateGathererAllocation() {}

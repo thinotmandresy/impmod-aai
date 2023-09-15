@@ -1,14 +1,10 @@
 // Calculate the percentages of gatherers to task on each resource type.
-void UpdateGathererAllocation(void)
+rule UpdateGathererAllocation
+group rgStartup
+inactive
+minInterval 0
+runImmediately
 {
-    if (gStartup == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 10000)
-        return;
-    last_call = xsGetTime();
-
     xsSetRuleMinIntervalSelf(10);
 
     // ========================================================================
@@ -1068,13 +1064,10 @@ void GatherResourcesFailsafe(void)
 }
 
 
-void ManageRicePaddyTactics(void)
+rule ManageRicePaddyTactics
+active
+minInterval 3
 {
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 3000)
-        return;
-    last_call = xsGetTime();
-
     int number_gatherers = 0;
     for(i = 0; < kbUnitCount(cMyID, cUnitTypeAbstractVillager, cUnitStateAlive))
     {

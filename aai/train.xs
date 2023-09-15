@@ -1,20 +1,11 @@
 // ================================================================================
 // Keep training villagers until we reach the build limit.
 // ================================================================================
-void MaintainVillagers(void)
+rule MaintainVillagers
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
-    static bool isActive = true;
-    if (isActive == false)
-        return;
-
     if (cMyCiv == cCivOttomans)
     {
         xsSetRuleMinIntervalSelf(20);
@@ -75,7 +66,7 @@ void MaintainVillagers(void)
     if (gUnitTypeVillager == -1)
         return;
     
-    isActive = false;
+    xsDisableSelf();
 
     // Use static variable for good measure.
     static int villager_maintain_plan = -1;
@@ -100,16 +91,11 @@ void MaintainVillagers(void)
 // Keep training the main military units endlessly (unless it interferes with 
 // TownCenter build plans).
 // ================================================================================
-void MaintainMainMilitaryUnits(void)
+rule MaintainMainMilitaryUnits
+group rgMainBase
+inactive
+minInterval 2
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 2000)
-        return;
-    last_call = xsGetTime();
-
     if (kbGetAge() <= cAge1)
         return;
     
@@ -337,16 +323,11 @@ void MaintainMainMilitaryUnits(void)
 // ================================================================================
 // Train artillery units to fill our lines.
 // ================================================================================
-void MaintainArtilleryUnits(void)
+rule MaintainArtilleryUnits
+group rgMainBase
+inactive
+minInterval 2
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 2000)
-        return;
-    last_call = xsGetTime();
-
     if (kbGetAge() <= cAge2)
         return;
     
@@ -441,25 +422,16 @@ void MaintainArtilleryUnits(void)
 // Keep training consulate units endlessly (TODO: do it only after all consulate 
 // techs are researched).
 // ================================================================================
-void MaintainConsulateArmies(void)
+rule MaintainConsulateArmies
+group rgMainBase
+inactive
+minInterval 60
 {
-    if (gMainBase == false)
-        return;
-    
-    static bool isActive = true;
-    if (isActive == false)
-        return;
-    
     if (isAsian() == false && cMyCiv != cCivOttomans)
     {
-        isActive = false;
+        xsDisableSelf();
         return;
     }
-
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 60000)
-        return;
-    last_call = xsGetTime();
 
     if (kbGetAge() <= cAge1)
         return;
@@ -634,16 +606,11 @@ void MaintainConsulateArmies(void)
 // ================================================================================
 // Use the fame resource.
 // ================================================================================
-void MaintainFameUnits(void)
+rule MaintainFameUnits
+group rgMainBase
+inactive
+minInterval 10
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 10000)
-        return;
-    last_call = xsGetTime();
-
     if (kbGetAge() <= cAge1)
         return;
     
@@ -807,16 +774,11 @@ void MaintainFameUnits(void)
 // Keep training native warriors endlessly (TODO: do it only after all native techs
 // are researched).
 // ================================================================================
-void MaintainNativeWarriors(void)
+rule MaintainNativeWarriors
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbGetAge() <= cAge1)
         return;
     

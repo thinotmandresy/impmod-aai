@@ -1,12 +1,7 @@
-void GatherNuggetsLand(void)
+rule GatherNuggetsLand
+group rgStartup
+inactive
 {
-    if (gStartup == false)
-        return;
-    
-    static bool isActive = true;
-    if (isActive == false)
-        return;
-    
     static int explore_plan = -1;
 
     static int age2_time = -1;
@@ -23,7 +18,7 @@ void GatherNuggetsLand(void)
         explore_plan = -1;
         xsEnableRuleGroup("rgLandExploration");
         gLandExploration = true;
-        isActive = false;
+        xsDisableSelf();
         return;
     }
 
@@ -54,16 +49,11 @@ runImmediately
 }
 
 
-void ExploreLandWithSpecialScouts(void)
+rule ExploreLandWithSpecialScouts
+group rgLandExploration
+inactive
+minInterval 5
 {
-    if (gLandExploration == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     for(i = 0; < kbUnitCount(cMyID, cUnitTypeLogicalTypeScout, cUnitStateAlive))
     {
         int i_scout = getUnit1(cUnitTypeLogicalTypeScout, cMyID, i);
@@ -94,16 +84,11 @@ void ExploreLandWithSpecialScouts(void)
 }
 
 
-void RescueKnockedOutUnits(void)
+rule RescueKnockedOutUnits
+group rgLandExploration
+inactive
+minInterval 1
 {
-    if (gLandExploration == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 1000)
-        return;
-    last_call = xsGetTime();
-
     static int rescuer = -1;
     if (kbUnitGetCurrentHitpoints(rescuer) < 0.1)
         rescuer = -1;

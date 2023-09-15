@@ -1,16 +1,14 @@
-void DanceToFirepit()
+rule DanceToFirepit
+group rgStartup
+inactive
+minInterval 10
 {
     if (isNative() == false)
+    {
+        xsDisableSelf();
         return;
+    }
     
-    if (gStartup == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 10000)
-        return;
-    last_call = xsGetTime();
-
     int firepit = getUnit1(cUnitTypeFirePit, cMyID, 0);
     if (firepit == -1)
         return;
@@ -54,13 +52,10 @@ void DanceToFirepit()
 }
 
 
-void HideTheRegent(void)
+rule HideTheRegent
+active
+minInterval 1
 {
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 500)
-        return;
-    last_call = xsGetTime();
-
     if (kbUnitCount(cMyID, cUnitTypeypCastleRegicide, cUnitStateAlive) == 0)
         return;
     

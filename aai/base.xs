@@ -29,6 +29,7 @@ runImmediately
     kbBaseSetActive(cMyID, main_base, true);
 
     gMainBase = true;
+    xsEnableRule("rgMainBase");
 }
 
 
@@ -93,16 +94,11 @@ runImmediately
 }
 
 
-void MaintainTownCenters(void)
+rule MaintainTownCenters
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbUnitCount(cMyID, cUnitTypeTownCenter, cUnitStateABQ) >= kbGetBuildLimit(cMyID, cUnitTypeTownCenter))
         return;
     

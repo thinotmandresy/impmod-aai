@@ -1,17 +1,12 @@
-void ShouldIResign()
+rule ShouldIResign
+group rgStartup
+inactive
+minInterval 10
 {
-    if (gStartup == false)
-        return;
-    
     static int retry = -1;
     if (xsGetTime() < retry)
         return;
     
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 10000)
-        return;
-    last_call = xsGetTime();
-
     // Do not resign while the Treaty counter is not zero.
     if (aiTreatyActive() == true)
         return;

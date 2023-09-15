@@ -1,13 +1,8 @@
-void MaintainTradingPosts(void)
+rule MaintainTradingPosts
+group rgMainBase
+inactive
+minInterval 10
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 10000)
-        return;
-    last_call = xsGetTime();
-
     const int attempt_cdn = 60000;
     static int last_attempt = -60000;
     if (xsGetTime() < last_attempt + attempt_cdn)

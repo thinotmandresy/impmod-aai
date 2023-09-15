@@ -1,19 +1,14 @@
 // ================================================================================
 // Keep building houses until we reach the build limit.
 // ================================================================================
-void MaintainHouses(void)
+rule MaintainHouses
+group rgMainBase
+inactive
+minInterval 5
 {
     if (cMyCulture == cCultureSioux)
         return;
     
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeHouse) == false)
         return;
     
@@ -160,16 +155,11 @@ void MaintainHouses(void)
 // ================================================================================
 // Try to maintain one market in the main base.
 // ================================================================================
-void MaintainMarket(void)
+rule MaintainMarket
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeMarket) == false)
         return;
     
@@ -227,16 +217,11 @@ void MaintainMarket(void)
 // ================================================================================
 // Keep building Command Posts until we reach the build limit.
 // ================================================================================
-void MaintainCommandPosts(void)
+rule MaintainCommandPosts
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeSPCFortCenter) == false)
         return;
     
@@ -302,16 +287,11 @@ void MaintainCommandPosts(void)
 // Build towers in circle around the main base, and keep building towers until we 
 // reach the build limit
 // ================================================================================
-void MaintainTowers(void)
+rule MaintainTowers
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeTowerBuilding) == false)
         return;
     
@@ -478,16 +458,11 @@ void MaintainTowers(void)
 // Try to maintain a certain number of infantry building in the main base depending
 // on the current Age.
 // ================================================================================
-void MaintainInfantryBuildings(void)
+rule MaintainInfantryBuildings
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeInfantryBuilding) == false)
         return;
     
@@ -564,16 +539,11 @@ void MaintainInfantryBuildings(void)
 // Try to maintain a certain number of cavalry building in the main base depending
 // on the current Age.
 // ================================================================================
-void MaintainCavalryBuildings(void)
+rule MaintainCavalryBuildings
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeCavalryBuilding) == false)
         return;
     
@@ -647,16 +617,11 @@ void MaintainCavalryBuildings(void)
 // Try to maintain a certain number of artillery building in the main base
 // depending on the current Age.
 // ================================================================================
-void MaintainArtilleryBuildings(void)
+rule MaintainArtilleryBuildings
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeArtilleryBuilding) == false)
         return;
     
@@ -729,16 +694,11 @@ void MaintainArtilleryBuildings(void)
 // ================================================================================
 // Try to maintain one mercenary building in the main base.
 // ================================================================================
-void MaintainMercenaryBuilding(void)
+rule MaintainMercenaryBuilding
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeMercenaryBuilding) == false)
         return;
     
@@ -796,16 +756,11 @@ void MaintainMercenaryBuilding(void)
 // ================================================================================
 // Try to maintain at least one religious building in the main base.
 // ================================================================================
-void MaintainReligiousBuildings(void)
+rule MaintainReligiousBuildings
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(gUnitTypeReligiousBuilding) == false)
         return;
     
@@ -863,16 +818,11 @@ void MaintainReligiousBuildings(void)
 // ================================================================================
 // Build a cherry orchard for each orchard rickshaw we have.
 // ================================================================================
-void MaintainCherryOrchards(void)
+rule MaintainCherryOrchards
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypBerryBuilding) == false)
         return;
     
@@ -909,16 +859,11 @@ void MaintainCherryOrchards(void)
 // ================================================================================
 // Build a mango grove for each grove rickshaw we have.
 // ================================================================================
-void MaintainMangoGroves(void)
+rule MaintainMangoGroves
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypGroveBuilding) == false)
         return;
     
@@ -955,16 +900,11 @@ void MaintainMangoGroves(void)
 // ================================================================================
 // Build a lumber camp for each lumber camp wagon we have.
 // ================================================================================
-void MaintainLumberCamps(void)
+rule MaintainLumberCamps
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeLumberCamp) == false)
         return;
     
@@ -1001,16 +941,11 @@ void MaintainLumberCamps(void)
 // ================================================================================
 // Build a factory for each factory wagon we have.
 // ================================================================================
-void MaintainFactories(void)
+rule MaintainFactories
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeFactory) == false)
         return;
     
@@ -1072,16 +1007,11 @@ void MaintainFactories(void)
 // ================================================================================
 // Keep building banks until we reach the build limit.
 // ================================================================================
-void MaintainDutchBanks(void)
+rule MaintainDutchBanks
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeBank) == false)
         return;
     
@@ -1138,16 +1068,11 @@ void MaintainDutchBanks(void)
 // ================================================================================
 // Keep building banks until we reach the build limit.
 // ================================================================================
-void MaintainAsianBanks(void)
+rule MaintainAsianBanks
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypBankAsian) == false)
         return;
     
@@ -1191,16 +1116,11 @@ void MaintainAsianBanks(void)
 // ================================================================================
 // Try to maintain one consulate in the main base.
 // ================================================================================
-void MaintainConsulate(void)
+rule MaintainConsulate
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypConsulate) == false)
         return;
     
@@ -1258,16 +1178,11 @@ void MaintainConsulate(void)
 // ================================================================================
 // Try to maintain one FirePit in the main base.
 // ================================================================================
-void MaintainFirePit(void)
+rule MaintainFirePit
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeFirePit) == false)
         return;
     
@@ -1325,16 +1240,11 @@ void MaintainFirePit(void)
 // ================================================================================
 // Build a dojo for each dojo wagon we have.
 // ================================================================================
-void MaintainDojos(void)
+rule MaintainDojos
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypDojo) == false)
         return;
     
@@ -1373,16 +1283,11 @@ void MaintainDojos(void)
 // ================================================================================
 // Try to maintain one arsenal in the main base.
 // ================================================================================
-void MaintainEuropeanArsenal(void)
+rule MaintainEuropeanArsenal
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeArsenal) == false)
         return;
     
@@ -1447,16 +1352,11 @@ void MaintainEuropeanArsenal(void)
 // ================================================================================
 // Try to maintain one arsenal in the main base.
 // ================================================================================
-void MaintainOttomanArsenal(void)
+rule MaintainOttomanArsenal
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypArsenalOttoman) == false)
         return;
     
@@ -1500,16 +1400,11 @@ void MaintainOttomanArsenal(void)
 // ================================================================================
 // Try to maintain one arsenal in the main base.
 // ================================================================================
-void MaintainAsianArsenal(void)
+rule MaintainAsianArsenal
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeypArsenalAsian) == false)
         return;
     
@@ -1553,16 +1448,11 @@ void MaintainAsianArsenal(void)
 // ================================================================================
 // Try to maintain one capitol in the main base.
 // ================================================================================
-void MaintainCapitol(void)
+rule MaintainCapitol
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeCapitol) == false)
         return;
     
@@ -1620,16 +1510,11 @@ void MaintainCapitol(void)
 // ================================================================================
 // Try to maintain the appropriate number of farms.
 // ================================================================================
-void MaintainFarms(void)
+rule MaintainFarms
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (gTimeToFarm == false)
         return;
     
@@ -1721,16 +1606,11 @@ void MaintainFarms(void)
 // ================================================================================
 // Try to maintain the appropriate number of plantations.
 // ================================================================================
-void MaintainPlantations(void)
+rule MaintainPlantations
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (gTimeForPlantation == false)
         return;
     
@@ -1822,16 +1702,11 @@ void MaintainPlantations(void)
 // ================================================================================
 // Build a fort for each fort wagon we have.
 // ================================================================================
-void MaintainFortFrontiers(void)
+rule MaintainFortFrontiers
+group rgMainBase
+inactive
+minInterval 5
 {
-    if (gMainBase == false)
-        return;
-    
-    static int last_call = -1;
-    if (xsGetTime() < last_call + 5000)
-        return;
-    last_call = xsGetTime();
-
     if (kbProtoUnitAvailable(cUnitTypeFortFrontier) == false)
         return;
     
