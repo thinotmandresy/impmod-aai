@@ -103,39 +103,43 @@ void ResearchUnitUpgrades(void)
     }
 
     int military_line1_upgrade = kbTechTreeGetCheapestUnitUpgrade(gMilitaryLine1);
-    int building_to_use = findBuildingToResearchTech(military_line1_upgrade);
-
-    if (kbGetAge() >= cAge2 && military_line1_upgrade >= 0 && building_to_use >= 0 && 
-        kbTechGetStatus(military_line1_upgrade) == cTechStatusObtainable && 
-        aiPlanGetIDByTypeAndVariableType(cPlanResearch, cResearchPlanTechID, military_line1_upgrade, true) == -1)
+    if (kbGetAge() >= cAge2 && military_line1_upgrade >= 0 
+        && kbTechGetStatus(military_line1_upgrade) == cTechStatusObtainable 
+        && aiPlanGetIDByTypeAndVariableType(cPlanResearch, cResearchPlanTechID, military_line1_upgrade, true) == -1)
     {
-        int military_line1_upgrade_plan = aiPlanCreate("Research Line 1 Upgrade (" + kbGetTechName(military_line1_upgrade) + ")", cPlanResearch);
-        aiPlanSetDesiredPriority(military_line1_upgrade_plan, 100);
-        aiPlanSetEscrowID(military_line1_upgrade_plan, cRootEscrowID);
-        aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
-        aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanTechID, 0, military_line1_upgrade);
-        aiPlanSetEventHandler(military_line1_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
-        aiPlanSetActive(military_line1_upgrade_plan, true);
+        int building_to_use = findBuildingToResearchTech(military_line1_upgrade);
+        if (building_to_use >= 0)
+        {
+            int military_line1_upgrade_plan = aiPlanCreate("Research Line 1 Upgrade (" + kbGetTechName(military_line1_upgrade) + ")", cPlanResearch);
+            aiPlanSetDesiredPriority(military_line1_upgrade_plan, 100);
+            aiPlanSetEscrowID(military_line1_upgrade_plan, cRootEscrowID);
+            aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
+            aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanTechID, 0, military_line1_upgrade);
+            aiPlanSetEventHandler(military_line1_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetActive(military_line1_upgrade_plan, true);
 
-        return;
+            return;
+        }
     }
 
     int military_line2_upgrade = kbTechTreeGetCheapestUnitUpgrade(gMilitaryLine2);
-    building_to_use = findBuildingToResearchTech(military_line2_upgrade);
-
-    if (kbGetAge() >= cAge2 && military_line2_upgrade >= 0 && building_to_use >= 0 && 
-        kbTechGetStatus(military_line2_upgrade) == cTechStatusObtainable && 
-        aiPlanGetIDByTypeAndVariableType(cPlanResearch, cResearchPlanTechID, military_line2_upgrade, true) == -1)
+    if (kbGetAge() >= cAge2 && military_line2_upgrade >= 0 
+        && kbTechGetStatus(military_line2_upgrade) == cTechStatusObtainable 
+        && aiPlanGetIDByTypeAndVariableType(cPlanResearch, cResearchPlanTechID, military_line2_upgrade, true) == -1)
     {
-        int military_line2_upgrade_plan = aiPlanCreate("Research Line 2 Upgrade (" + kbGetTechName(military_line2_upgrade) + ")", cPlanResearch);
-        aiPlanSetDesiredPriority(military_line2_upgrade_plan, 100);
-        aiPlanSetEscrowID(military_line2_upgrade_plan, cRootEscrowID);
-        aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
-        aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanTechID, 0, military_line2_upgrade);
-        aiPlanSetEventHandler(military_line2_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
-        aiPlanSetActive(military_line2_upgrade_plan, true);
+        building_to_use = findBuildingToResearchTech(military_line2_upgrade);
+        if (building_to_use >= 0)
+        {
+            int military_line2_upgrade_plan = aiPlanCreate("Research Line 2 Upgrade (" + kbGetTechName(military_line2_upgrade) + ")", cPlanResearch);
+            aiPlanSetDesiredPriority(military_line2_upgrade_plan, 100);
+            aiPlanSetEscrowID(military_line2_upgrade_plan, cRootEscrowID);
+            aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
+            aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanTechID, 0, military_line2_upgrade);
+            aiPlanSetEventHandler(military_line2_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetActive(military_line2_upgrade_plan, true);
 
-        return;
+            return;
+        }
     }
 
     float lowest_upgrade_cost = 999999.9;

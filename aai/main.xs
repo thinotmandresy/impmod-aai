@@ -25,6 +25,9 @@ include "aai/info.xs";
 
 void main(void)
 {
+    // Initialize arrays.
+    initArrays();
+
     // Tell the system to break the map into areas and area groups.
     kbAreaCalculate();
 
