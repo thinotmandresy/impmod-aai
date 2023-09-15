@@ -29,7 +29,7 @@ runImmediately
     kbBaseSetActive(cMyID, main_base, true);
 
     gMainBase = true;
-    xsEnableRule("rgMainBase");
+    xsEnableRuleGroup("rgMainBase");
 }
 
 
