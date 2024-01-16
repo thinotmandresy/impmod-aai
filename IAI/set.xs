@@ -218,6 +218,7 @@ void setUnitTypes(void)
 		}
 		case cCivColombians:
 		{
+			gExplorerUnit = cUnitTypeExplorerAmerican;
 			gHouseUnit = cUnitTypeHouseMed;
 			gLivestockPenUnit = cUnitTypeHouseMed;
 			gGalleonUnit = cUnitTypeSteamShip;
@@ -254,7 +255,7 @@ void setUnitTypes(void)
 		}
 		case cCivGermans:
 		{
-			//gExplorerUnit = cUnitTypeExplorerEast; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerEast;
 			gHouseUnit = cUnitTypeHouseEast;
 			gLivestockPenUnit = cUnitTypeHouseEast;
 			gNavyClass1 = cUnitTypeCaravel;
@@ -298,7 +299,7 @@ void setUnitTypes(void)
 		}
 		case cCivItalians:
 		{
-			//gExplorerUnit = cUnitTypeExplorerMed; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerMed;
 			gHouseUnit = cUnitTypeHouseVilla;
 			gLivestockPenUnit = cUnitTypeHouseVilla;
 			gSpecialUnit = cUnitTypeCrossbowman;
@@ -366,7 +367,7 @@ void setUnitTypes(void)
 		}
 		case cCivMaltese:
 		{
-			//gExplorerUnit = cUnitTypeExplorerMed; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerMed;
 			gHouseUnit = cUnitTypeHouseMed;
 			gLivestockPenUnit = cUnitTypeHouseMed;
 			gNavyClass1 = cUnitTypeCaravel;
@@ -377,7 +378,7 @@ void setUnitTypes(void)
 		}
 		case cCivOttomans:
 		{
-			//gExplorerUnit = cUnitTypeExplorerMed; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerMed;
 			gHouseUnit = cUnitTypeHouseMed;
 			gLivestockPenUnit = cUnitTypeHouseMed;
 			gCaravelUnit = cUnitTypeGalley;
@@ -392,7 +393,7 @@ void setUnitTypes(void)
 		}
 		case cCivPortuguese:
 		{
-			//gExplorerUnit = cUnitTypeExplorerMed; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerMed;
 			gHouseUnit = cUnitTypeHouseMed;
 			gLivestockPenUnit = cUnitTypeHouseMed;
 			gSpecialUnit = cUnitTypeCacadore;
@@ -404,7 +405,7 @@ void setUnitTypes(void)
 		}
 		case cCivRussians:
 		{
-			//gExplorerUnit = cUnitTypeExplorerEast; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerEast;
 			gHouseUnit = cUnitTypeHouseEast;
 			gLivestockPenUnit = cUnitTypeHouseEast;
 			gTowerUnit = cUnitTypeBlockhouse;
@@ -418,7 +419,7 @@ void setUnitTypes(void)
 		}
 		case cCivSpanish:
 		{
-			//gExplorerUnit = cUnitTypeExplorerMed; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerMed;
 			gHouseUnit = cUnitTypeHouseMed;
 			gLivestockPenUnit = cUnitTypeHouseMed;
 			gNavyClass1 = cUnitTypeCaravel;
@@ -429,7 +430,7 @@ void setUnitTypes(void)
 		}
 		case cCivSwedish:
 		{
-			//gExplorerUnit = cUnitTypeExplorerEast; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerEast;
 			gHouseUnit = cUnitTypeHouseTorp;
 			gLivestockPenUnit = cUnitTypeHouseTorp;
 			gEconUnit = cUnitTypeSettlerSwedish;
@@ -438,7 +439,8 @@ void setUnitTypes(void)
 		}
 		case cCivUSA:
 		{
-			//gExplorerUnit = cUnitTypeExplorerAmerican; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerAmerican;
+			gExplorerUnit2 = cUnitTypeExplorerAmerican2;
 			gSpecialUnit = cUnitTypeMarine;
 			gGalleonUnit = cUnitTypeSteamShip;
 			gEconUnit = cUnitTypeSettlerAmerican;
@@ -450,8 +452,8 @@ void setUnitTypes(void)
 		}
 		case cCivXPAztec:
 		{
-			//gMarketUnit = cUnitTypeMarketNative; //toEnableNextUpdate
-			//gDockUnit = cUnitTypeDockNative; //toEnableNextUpdate
+			gMarketUnit = cUnitTypeMarketNative;
+			gDockUnit = cUnitTypeDockNative;
 			gExplorerUnit = cUnitTypexpAztecWarchief;
 			gHouseUnit = cUnitTypeHouseAztec;
 			gSpecialUnit = cUnitTypexpMacehualtin;
@@ -467,9 +469,9 @@ void setUnitTypes(void)
 		}
 		case cCivXPIroquois:
 		{
-			//gArtilleryDepotUnit = cUnitTypeSiegeWorkshop; //toEnableNextUpdate
-			//gMarketUnit = cUnitTypeMarketNative; //toEnableNextUpdate
-			//gDockUnit = cUnitTypeDockNative; //toEnableNextUpdate
+			gArtilleryDepotUnit = cUnitTypeSiegeWorkshop;
+			gMarketUnit = cUnitTypeMarketNative;
+			gDockUnit = cUnitTypeDockNative;
 			gExplorerUnit = cUnitTypexpIroquoisWarChief;
 			gHouseUnit = cUnitTypeLonghouse;
 			gSpecialUnit = cUnitTypexpTomahawk;
@@ -480,9 +482,9 @@ void setUnitTypes(void)
 		}
 		case cCivXPSioux:
 		{
-			//gExplorerUnit = cUnitTypeExplorerAmerican; //toEnableNextUpdate
-			//gMarketUnit = cUnitTypeMarketNative; //toEnableNextUpdate
-			//gDockUnit = cUnitTypeDockNative; //toEnableNextUpdate
+			gExplorerUnit = cUnitTypeExplorerAmerican;
+			gMarketUnit = cUnitTypeMarketNative;
+			gDockUnit = cUnitTypeDockNative;
 			gExplorerUnit = cUnitTypexpLakotaWarchief;
 			gHouseUnit = cUnitTypeTeepee;
 			gSpecialUnit = cUnitTypexpWarBow;

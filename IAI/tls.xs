@@ -167,7 +167,6 @@ int unitGathererLimit(int unitID = -1)
 		case cUnitTypeHouseVilla :{ return( 2 );break;}
 		case cUnitTypeTreeChristmas2 :{ return( 8 );break;}
 		case cUnitTypeGiftCoin2 :{ return( 8 );break;}
-		case cUnitTypeResourceWagonFame :{ return( 8 );break;}
 		case cUnitTypeZebra :{ return( 8 );break;}
 		case cUnitTypeTreePlymouth :{ return( 8 );break;}
 		case cUnitTypeypTreeIndo :{ return( 8 );break;}

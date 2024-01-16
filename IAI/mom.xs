@@ -429,13 +429,17 @@ void bankWagonMonitor()
 extern int coveredWagonId = -1;
 void coveredWagonMonitor()
 { // Handle nomad start, extra covered wagons.
+	static bool pFirstRun = true;
 	static int lastRunTime = 0;
-	if(functionDelay(lastRunTime, 10000,"coveredWagonMonitor") == false) return;
-	lastRunTime = gCurrentGameTime;
-	
+	if(pFirstRun)
+	{
+		pFirstRun = false;
+		if(functionDelay(lastRunTime, 10000,"coveredWagonMonitor") == false) return;
+		lastRunTime = gCurrentGameTime;
+	}
 	int coveredWagon = getUnit(gCoveredWagonUnit, cMyID, cUnitStateAlive);
-	if (gTownCenterNumber == 0) return;
 	if (coveredWagon == -1) return;
+	if(checkBuildingLimit(gCoveredWagonUnit) == true) return;
 	//if ( (coveredWagon >= 0) && (aiPlanGetIDByTypeAndVariableType(cPlanBuild, cBuildPlanBuildingTypeID, gTownCenter) < 0) )// Check if we have a covered wagon, but no TC build plan....
 	if ((coveredWagon >= 0) && (coveredWagonId != coveredWagon))
 	{
@@ -3534,12 +3538,6 @@ void wagonMonitor()
 					else debugRule("wagonMonitor - Warning " + kbUnitGetProtoUnitID(pWagonId) + " no build option found" ,3);
 					continue; break;
 				}
-				case cUnitTypeCoveredWagonFame:
-				{
-					if(wagonCheck(cUnitTypeTownCenter,pWagonId)) continue;
-					else debugRule("wagonMonitor - Warning " + kbUnitGetProtoUnitID(pWagonId) + " no build option found" ,3);
-					continue; break;
-				}
 				case cUnitTypeWagonBuildingsFame:
 				{
 					if(gWaterMap && wagonCheck(cUnitTypeDock,pWagonId)) continue;
@@ -3553,20 +3551,7 @@ void wagonMonitor()
 					else if(wagonCheck(cUnitTypeSPCFortCenter,pWagonId)) continue;
 					else debugRule("wagonMonitor - Warning " + kbUnitGetProtoUnitID(pWagonId) + " no build option found" ,3);
 					continue; break;
-				}
-				case cUnitTypeCoveredWagonPlus:
-				{
-					if(wagonCheck(cUnitTypeTownCenter,pWagonId)) continue;
-					else if(wagonCheck(cUnitTypeTradingPost,pWagonId)) continue;
-					else debugRule("wagonMonitor - Warning " + kbUnitGetProtoUnitID(pWagonId) + " no build option found" ,3);
-					continue; break;
 				}	
-				case cUnitTypeBakeryWagon:
-				{
-					if(wagonCheck(cUnitTypeSPCXPBaker,pWagonId)) continue;
-					else debugRule("wagonMonitor - Warning " + kbUnitGetProtoUnitID(pWagonId) + " no build option found" ,3);
-					continue; break;
-				}
 				case cUnitTypeToshoguShrineWagon:
 				{
 					if(wagonCheck(cUnitTypeFakeToshoguShrine,pWagonId)) continue;
