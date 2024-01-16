@@ -627,18 +627,17 @@ minInterval 10
     if (primary_fame_units == -1)
     {
         primary_fame_units = xsArrayCreateInt(12, -1, "List of primary fame units.");
-        xsArraySetInt(primary_fame_units, 0, cUnitTypeGeneral);
-        xsArraySetInt(primary_fame_units, 1, cUnitTypeGeneralAlain);
-        xsArraySetInt(primary_fame_units, 2, cUnitTypeGeneralSahin);
-        xsArraySetInt(primary_fame_units, 3, cUnitTypeGeneralMorgan);
-        xsArraySetInt(primary_fame_units, 4, cUnitTypeGeneralWarwick);
-        xsArraySetInt(primary_fame_units, 5, cUnitTypeGeneralCuster);
-        xsArraySetInt(primary_fame_units, 6, cUnitTypeGeneralBr);
-        xsArraySetInt(primary_fame_units, 7, cUnitTypeGeneralJohn);
-        xsArraySetInt(primary_fame_units, 8, cUnitTypeGeneralBolivar);
-        xsArraySetInt(primary_fame_units, 9, cUnitTypeGeneralCrazy);
-        xsArraySetInt(primary_fame_units, 10, cUnitTypeFlagBearer);
-        xsArraySetInt(primary_fame_units, 11, cUnitTypeDrummerEu);
+        xsArraySetInt(primary_fame_units, 0, cUnitTypeGeneralAlain);
+        xsArraySetInt(primary_fame_units, 1, cUnitTypeGeneralSahin);
+        xsArraySetInt(primary_fame_units, 2, cUnitTypeGeneralMorgan);
+        xsArraySetInt(primary_fame_units, 3, cUnitTypeGeneralWarwick);
+        xsArraySetInt(primary_fame_units, 4, cUnitTypeGeneralCuster);
+        xsArraySetInt(primary_fame_units, 5, cUnitTypeGeneralBr);
+        xsArraySetInt(primary_fame_units, 6, cUnitTypeGeneralJohn);
+        xsArraySetInt(primary_fame_units, 7, cUnitTypeGeneralBolivar);
+        xsArraySetInt(primary_fame_units, 8, cUnitTypeGeneralCrazy);
+        xsArraySetInt(primary_fame_units, 9, cUnitTypeFlagBearer);
+        xsArraySetInt(primary_fame_units, 10, cUnitTypeDrummerEu);
 
         secondary_fame_units = xsArrayCreateInt(4, -1, "List of secondary fame units.");
         xsArraySetInt(secondary_fame_units, 0, cUnitTypePriest);
