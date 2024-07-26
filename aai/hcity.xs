@@ -513,7 +513,7 @@ minInterval 0
                     score = score * 1.25;
                 break;
             }
-            case cUnitTypeSettlerSwedish:
+            case cUnitTypeSettlerDutch:
             {
                 score = 165.0 * unit_count;
                 if (gStrategy == cStrategyRush)
