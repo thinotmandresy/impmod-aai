@@ -335,13 +335,13 @@ void ManageAttackWaves(void)
 
     aiPlanSetNoMoreUnits(attack_plan, true);
 
-    aiPlanSetEventHandler(attack_plan, cPlanEventStateChange, "eWhenAttackPlanStateChanges");
+    aiPlanSetEventHandler(attack_plan, cPlanEventStateChange, "onAttackPlanStateChange");
     
     aiPlanSetActive(attack_plan, true);
 }
 
 
-void eWhenAttackPlanStateChanges(int plan_id = -1)
+void onAttackPlanStateChange(int plan_id = -1)
 {
     const int chat_interval = 120000;
     static int last_chat_time = -120000;

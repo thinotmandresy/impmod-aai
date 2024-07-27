@@ -1,4 +1,4 @@
-void eWhenKOTHStarts(int team_id = -1)
+void onKOTHStart(int team_id = -1)
 {
     if (team_id == -1)
         return;
@@ -8,7 +8,7 @@ void eWhenKOTHStarts(int team_id = -1)
 }
 
 
-void eWhenKOTHEnds(int team_id = -1)
+void onKOTHEnd(int team_id = -1)
 {
     if (team_id == -1)
         return;

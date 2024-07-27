@@ -1,4 +1,4 @@
-void eWhenMonopolyStarts(int team_id = -1)
+void onMonopolyStart(int team_id = -1)
 {
     if (team_id == -1)
         return;
@@ -36,7 +36,7 @@ void eWhenMonopolyStarts(int team_id = -1)
 }
 
 
-void eWhenMonopolyEnds(int team_id = -1)
+void onMonopolyEnd(int team_id = -1)
 {
     if (team_id == -1)
         return;

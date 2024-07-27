@@ -88,7 +88,7 @@ minInterval 5
         aiPlanSetEscrowID(dm_imperial_ageup_plan, cRootEscrowID);
         aiPlanSetVariableInt(dm_imperial_ageup_plan, cResearchPlanBuildingTypeID, 0, cUnitTypeTownCenter);
         aiPlanSetVariableInt(dm_imperial_ageup_plan, cResearchPlanTechID, 0, cTechDeathmatchImperial);
-        aiPlanSetEventHandler(dm_imperial_ageup_plan, cPlanEventStateChange, "eWhenAgeUpgradeStateChanges");
+        aiPlanSetEventHandler(dm_imperial_ageup_plan, cPlanEventStateChange, "onAgeUpPlanStateChange");
         aiPlanSetActive(dm_imperial_ageup_plan, true);
 
         return;
@@ -153,7 +153,7 @@ minInterval 5
         else
             aiPlanAddUnitType(age_upgrade_plan, gUnitTypeVillager, 6, 6, 6);
         aiPlanSetNoMoreUnits(age_upgrade_plan, false);
-        aiPlanSetEventHandler(age_upgrade_plan, cPlanEventStateChange, "eWhenAgeUpgradeStateChanges");
+        aiPlanSetEventHandler(age_upgrade_plan, cPlanEventStateChange, "onAgeUpPlanStateChange");
         aiPlanSetActive(age_upgrade_plan, true);
     }
     else
@@ -163,13 +163,13 @@ minInterval 5
         aiPlanSetEscrowID(age_upgrade_plan, cRootEscrowID);
         aiPlanSetVariableInt(age_upgrade_plan, cResearchPlanBuildingTypeID, 0, cUnitTypeTownCenter);
         aiPlanSetVariableInt(age_upgrade_plan, cResearchPlanTechID, 0, aiGetPoliticianChoice(age));
-        aiPlanSetEventHandler(age_upgrade_plan, cPlanEventStateChange, "eWhenAgeUpgradeStateChanges");
+        aiPlanSetEventHandler(age_upgrade_plan, cPlanEventStateChange, "onAgeUpPlanStateChange");
         aiPlanSetActive(age_upgrade_plan, true);
     }
 }
 
 
-void eWhenAgeUpgradeStateChanges(int age_upgrade_plan = -1)
+void onAgeUpPlanStateChange(int age_upgrade_plan = -1)
 {
     UpdateGathererAllocation();
 }

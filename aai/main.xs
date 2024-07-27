@@ -43,11 +43,11 @@ void main(void)
     // Create the unique unit picker that will be used in all routines that require algorithmic unit selection.
     gUnitPicker = kbUnitPickCreate("Unit Picker");
 
-    aiSetHandler("eWhenOpponentRespondsToMyResignRequest", cXSResignHandler);
+    aiSetHandler("onResignRequestResponse", cXSResignHandler);
 
-    aiCommsSetEventHandler("eWhenThereIsIncomingRequest");
-    aiSetHandler("eWhenSomeoneAgesUp", cXSPlayerAgeHandler);
-    aiSetHandler("eWhenSomeoneClaimsNugget", cXSNuggetHandler);
+    aiCommsSetEventHandler("onCommRequest");
+    aiSetHandler("onPlayerAgeUp", cXSPlayerAgeHandler);
+    aiSetHandler("onNuggetClaim", cXSNuggetHandler);
 }
 
 
@@ -68,11 +68,13 @@ void setCivUnitTypes(void)
         gUnitTypeVillager = cUnitTypeypSettlerJapanese;
     if (cMyCiv == cCivFrench)
         gUnitTypeVillager = cUnitTypeCoureur;
-    if (cMyCiv == cCivSwedish)
-        gUnitTypeVillager = cUnitTypeSettlerSwedish;
-    if (cMyCiv == cCivOttomans)
+    else if (cMyCiv == cCivDutch)
+        gUnitTypeVillager = cUnitTypeSettlerDutch;
+    else if (cMyCiv == cCivOttomans)
         gUnitTypeVillager = cUnitTypeSettlerOttoman;
-    if (cMyCiv == cCivUSA || cMyCiv == cCivColombians)
+    else if (cMyCiv == cCivUSA)
+        gUnitTypeVillager = cUnitTypeSettlerAmerican;
+    else if (cMyCiv == cCivColombians)
         gUnitTypeVillager = cUnitTypeSettlerAmerican;
     
 
@@ -102,6 +104,8 @@ void setCivUnitTypes(void)
         gUnitTypeHouse = cUnitTypeHouseVilla;
     else if (cMyCiv == cCivSwedish)
         gUnitTypeHouse = cUnitTypeHouseTorp;
+    else if (cMyCiv == cCivMaltese)
+        gUnitTypeHouse = cUnitTypeEncampment;
     
 
     /* ==============================================================

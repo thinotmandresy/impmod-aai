@@ -12,7 +12,7 @@ rule AiTauntsIntro active runImmediately priority 100
 // ============================================================================
 // Ages
 // ============================================================================
-void eWhenSomeoneAgesUp(int player = -1)
+void onPlayerAgeUp(int player = -1)
 {
     static bool everyone_aged_up = false;
     if (everyone_aged_up)
@@ -69,7 +69,7 @@ void eWhenSomeoneAgesUp(int player = -1)
 // ============================================================================
 // Treasures
 // ============================================================================
-void eWhenSomeoneClaimsNugget(int player = -1)
+void onNuggetClaim(int player = -1)
 {
     if (kbGetAge() >= cAge3)
         return;
@@ -384,7 +384,7 @@ minInterval 5
 // ============================================================================
 // Requests
 // ============================================================================
-void eWhenThereIsIncomingRequest(int request = -1)
+void onCommRequest(int request = -1)
 {
     int from = aiCommsGetSendingPlayer(request);
 

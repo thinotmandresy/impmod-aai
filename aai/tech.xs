@@ -74,7 +74,7 @@ void ResearchEconomicTechs(void)
     aiPlanSetEscrowID(economic_tech_research_plan, cRootEscrowID);
     aiPlanSetVariableInt(economic_tech_research_plan, cResearchPlanBuildingID, 0, building_to_use);
     aiPlanSetVariableInt(economic_tech_research_plan, cResearchPlanTechID, 0, cheapest_tech);
-    aiPlanSetEventHandler(economic_tech_research_plan, cPlanEventStateChange, "eWhenEconomicResearchPlanStateChanges");
+    aiPlanSetEventHandler(economic_tech_research_plan, cPlanEventStateChange, "onEconomicResearchPlanStateChange");
     aiPlanSetActive(economic_tech_research_plan, true);
 }
 
@@ -98,7 +98,7 @@ void ResearchUnitUpgrades(void)
         aiPlanSetDesiredPriority(villager_upgrade_plan, 100);
         aiPlanSetEscrowID(villager_upgrade_plan, cRootEscrowID);
         aiPlanSetVariableInt(villager_upgrade_plan, cResearchPlanTechID, 0, villager_upgrade);
-        aiPlanSetEventHandler(villager_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+        aiPlanSetEventHandler(villager_upgrade_plan, cPlanEventStateChange, "onUpgradePlanStateChange");
         aiPlanSetActive(villager_upgrade_plan, true);
     }
 
@@ -115,7 +115,7 @@ void ResearchUnitUpgrades(void)
             aiPlanSetEscrowID(military_line1_upgrade_plan, cRootEscrowID);
             aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
             aiPlanSetVariableInt(military_line1_upgrade_plan, cResearchPlanTechID, 0, military_line1_upgrade);
-            aiPlanSetEventHandler(military_line1_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetEventHandler(military_line1_upgrade_plan, cPlanEventStateChange, "onUpgradePlanStateChange");
             aiPlanSetActive(military_line1_upgrade_plan, true);
 
             return;
@@ -135,7 +135,7 @@ void ResearchUnitUpgrades(void)
             aiPlanSetEscrowID(military_line2_upgrade_plan, cRootEscrowID);
             aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
             aiPlanSetVariableInt(military_line2_upgrade_plan, cResearchPlanTechID, 0, military_line2_upgrade);
-            aiPlanSetEventHandler(military_line2_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetEventHandler(military_line2_upgrade_plan, cPlanEventStateChange, "onUpgradePlanStateChange");
             aiPlanSetActive(military_line2_upgrade_plan, true);
 
             return;
@@ -200,7 +200,7 @@ void ResearchUnitUpgrades(void)
             aiPlanSetEscrowID(unit_upgrade_plan, cRootEscrowID);
             aiPlanSetVariableInt(unit_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
             aiPlanSetVariableInt(unit_upgrade_plan, cResearchPlanTechID, 0, cheapest_upgrade);
-            aiPlanSetEventHandler(unit_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetEventHandler(unit_upgrade_plan, cPlanEventStateChange, "onUpgradePlanStateChange");
             aiPlanSetActive(unit_upgrade_plan, true);
         }
     }
@@ -215,7 +215,7 @@ void ResearchUnitUpgrades(void)
             aiPlanSetEscrowID(building_upgrade_plan, cRootEscrowID);
             aiPlanSetVariableInt(building_upgrade_plan, cResearchPlanBuildingID, 0, building_to_use);
             aiPlanSetVariableInt(building_upgrade_plan, cResearchPlanTechID, 0, cheapest_building_upgrade);
-            aiPlanSetEventHandler(building_upgrade_plan, cPlanEventStateChange, "eWhenUpgradePlanStateChanges");
+            aiPlanSetEventHandler(building_upgrade_plan, cPlanEventStateChange, "onUpgradePlanStateChange");
             aiPlanSetActive(building_upgrade_plan, true);
         }
     }
@@ -231,13 +231,13 @@ minInterval 30
 }
 
 
-void eWhenUpgradePlanStateChanges(int upgrade_plan = -1)
+void onUpgradePlanStateChange(int upgrade_plan = -1)
 {
     UpdateGathererAllocation();
 }
 
 
-void eWhenEconomicResearchPlanStateChanges(int economic_tech_research_plan = -1)
+void onEconomicResearchPlanStateChange(int economic_tech_research_plan = -1)
 {
     UpdateGathererAllocation();
 }

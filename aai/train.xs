@@ -815,7 +815,7 @@ minInterval 5
                 aiPlanSetDesiredPriority(current_researh_plan, 100);
                 aiPlanSetEscrowID(current_researh_plan, cRootEscrowID);
                 aiPlanSetVariableInt(current_researh_plan, cResearchPlanTechID, 0, i_protounit_upgrade);
-                aiPlanSetEventHandler(current_researh_plan, cPlanEventStateChange, "eWhenUnitUpgradePlanStateChanges");
+                aiPlanSetEventHandler(current_researh_plan, cPlanEventStateChange, "onUnitUpgradePlanStateChange");
                 aiPlanSetActive(current_researh_plan, true);
             }
         }

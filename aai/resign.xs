@@ -109,7 +109,7 @@ minInterval 10
 }
 
 
-void eWhenOpponentRespondsToMyResignRequest(int response = -1)
+void onResignRequestResponse(int response = -1)
 {
     if (response == 0)
         return;
